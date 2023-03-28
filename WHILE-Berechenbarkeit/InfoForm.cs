@@ -12,7 +12,7 @@ namespace WHILE_Berechenbarkeit
 
         private void InfoForm_Load(object sender, EventArgs e)
         {
-            string v = "WHILE-Berechenbarkeit: Ein While-Programm-Simulationsprogramm\nVersion: " + Assembly.GetEntryAssembly().GetName().Version.ToString() + ", 28.03.2023, Jonas Hülse\nEvtl. Kontakt";
+            string v = "WHILE-Berechenbarkeit: Ein While-Programm-Simulationsprogramm\nVersion: " + Assembly.GetEntryAssembly().GetName().Version.ToString() + ", 28.03.2023, Jonas Hülse\nKontakt: spam.jonas.h@web.de\nLizenz: GNU Affero General Public License v3.0";
             InfoTb.Text = v;
         }
 
