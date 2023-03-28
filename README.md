@@ -6,3 +6,10 @@
 
 Anwendung zum Überprüfen und Berechnen der Syntax. Sowie Beispiele und die Schrittweise Ausführung.
 
+# Syntax und syntaktischer Zucker
+
+Kann unter "Hilfe" >> "Syntax" eingesehen werden. Dort ist alles erklärt
+
+# Kompatibilität
+
+Die Anwendung unterstützt nur Windows 10/11. Es könnte auch unter Windows 7 oder anderen Windows Versionen laufen. Falls nicht, so kann ich es für die entsprechende Version kompilieren.
