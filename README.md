@@ -10,6 +10,10 @@ Anwendung zum Überprüfen und Berechnen der Syntax. Sowie Beispiele und die Sch
 
 Kann unter "Hilfe" >> "Syntax" eingesehen werden. Dort ist alles erklärt
 
+# Kommentieren
+
+Kommentare die hinter "#" oder "//" stehen werden nicht im Programm berücksichtigt.
+
 # Kompatibilität
 
 Die Anwendung unterstützt nur Windows 10/11. Es könnte auch unter Windows 7 oder anderen Windows Versionen laufen. Falls nicht, so kann ich es für die entsprechende Version kompilieren.
