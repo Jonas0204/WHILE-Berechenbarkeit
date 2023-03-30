@@ -76,8 +76,24 @@ namespace WHILE_Berechenbarkeit
             Variablen.Clear();
             TerminalTB.Text = "";
 
+            string code = EingabeTb.Text;
+            string[] lines = code.Split(new string[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+
+            for (int i = 0; i < lines.Length; i++)
+            {                
+                if (lines[i].Contains('#'))
+                {
+                    lines[i] = lines[i].Substring(0, lines[i].IndexOf("#"));
+                }
+                else if (lines[i].Contains("//"))
+                {
+                    lines[i] = lines[i].Substring(0, lines[i].IndexOf("//"));                    
+                }                
+            }
+            string cleancode = string.Join(Environment.NewLine, lines);            
+
             //Start der Syntaxprüfung
-            bool result = CheckWhileStructure(EingabeTb.Text + "\n");
+            bool result = CheckWhileStructure(cleancode + "\n");
             if (!result)
             {
                 TerminalTB.Text = "Fehler in der rot geschriebenen Zeile gefunden." + "\r\n" + "Möglicher Grund: " + errorReason + "\r\n" + TerminalTB.Text;
@@ -95,9 +111,9 @@ namespace WHILE_Berechenbarkeit
             else // Wenn es kein Fehler gibt, Berechnung starten
             {
                 //TerminalTB.Text = "Prüfung abgeschlossen: Akzeptiert" + TerminalTB.Text;
-                Variablen = ExtractVariables(EingabeTb.Text);
-                string s = EingabeTb.Text;
-                Thread t = new(() => ThreadStart(s)) { IsBackground = true };
+                Variablen = ExtractVariables(cleancode);
+                string ogtext = EingabeTb.Text;
+                Thread t = new(() => ThreadStart(cleancode, ogtext)) { IsBackground = true };
                 t.Start();
             }
         }
@@ -118,10 +134,10 @@ namespace WHILE_Berechenbarkeit
             }
         }
 
-        void ThreadStart(string originalText)
+        void ThreadStart(string cleancode, string originalText)
         {
             zeiger = 0;
-            ExecuteInput(originalText, originalText);
+            ExecuteInput(cleancode, originalText);
 
             try
             {
